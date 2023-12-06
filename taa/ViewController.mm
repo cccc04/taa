@@ -139,7 +139,7 @@ BOOL e;
         _C.backgroundColor = [UIColor grayColor];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             const char* ss1 = s1.UTF8String;
-            self->mCubeRenderer->SSS(ss1,"71.202.170.28");
+            self->mCubeRenderer->SSS(ss1,"73.71.182.238");
             dispatch_async(dispatch_get_main_queue(), ^{
                 self->_C.enabled = true;
                 e = true;
