@@ -18,11 +18,12 @@ public:
     ~SimpleRenderer();
     void Draw();
     void UpdateWindowSize(GLsizei width, GLsizei height);
-    void SSS(const char* aa, const char* i);
+    void SSS(const char* aa);
     void sts(const char* st);
     const char* rts();
     bool yn();
     void ync();
+    void cnect(const char* ip);
 
 private:
     GLuint mProgram;

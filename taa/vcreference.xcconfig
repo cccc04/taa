@@ -7,5 +7,5 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-OTHER_LIBTOOLFLAGS = /Users/ychen/vcremote/E/fff/faaab/ARM64/Debug/libfaaab.iOS.StaticLibrary.a $(inherited)
-OTHER_LDFLAGS = /Users/ychen/vcremote/E/fff/faaab/ARM64/Debug/libfaaab.iOS.StaticLibrary.a $(inherited)
+OTHER_LIBTOOLFLAGS = /Users/ychen/vcremote/E/fff/faaab/x64/Debug/libfaaab.iOS.StaticLibrary.a $(inherited)
+OTHER_LDFLAGS = /Users/ychen/vcremote/E/fff/faaab/x64/Debug/libfaaab.iOS.StaticLibrary.a $(inherited)

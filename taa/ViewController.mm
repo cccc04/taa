@@ -15,6 +15,7 @@ BOOL e;
 
 @property (weak, nonatomic) IBOutlet UITextView *gggg;
 @property (weak, nonatomic) IBOutlet UIButton *C;
+@property (weak, nonatomic) IBOutlet UIButton *Ent;
 @property (weak, nonatomic) IBOutlet UIView *Vi;
 
 
@@ -35,31 +36,48 @@ BOOL e;
     //[_scrollView addSubview:_Vi];
     //self.navigationController.navigationBar.translucent = NO;
     //self.navigationController.navigationBarHidden = YES;
-      [super viewDidLoad];
-      _gggg.editable = NO;
+    [super viewDidLoad];
+    _gggg.editable = NO;
     _gggg.text = @"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    _C.enabled = false;
+    _C.backgroundColor = [UIColor grayColor];
+    _Ent.enabled = false;
+    _Ent.backgroundColor = [UIColor grayColor];
     [self registerForKeyboardNotifications];
     dispatch_async(dispatch_queue_create("getDbSize", NULL), ^{
-    
-          while(1){
-                //printf("%s ", mCubeRenderer->rts());
-                //printf("%s\n", ha);
-                //usleep(10000);
-              if(self->mCubeRenderer->yn() == true){
-                      printf(" kk \n");
 
-                  self->mCubeRenderer->ync();
-                      dispatch_async(dispatch_get_main_queue(), ^{
-                          NSString* ha = [NSString stringWithUTF8String: self->mCubeRenderer->rts()];
-                          
-                          NSString *sa = [self->_gggg text];
-                              NSString *ss = [NSString stringWithFormat:@"%@\n%@\n", sa, ha];
-                          self->_gggg.text = ss;
-                            //printf("%s", ss.UTF8String);
-                          [self->_gggg scrollRangeToVisible:NSMakeRange(self->_gggg.text.length-1, 1)];
-                      });
-                }
-          }
+        self->mCubeRenderer->cnect("10.0.0.81");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self->_C.enabled = true;
+            self->_Ent.enabled = true;
+            if (@available(iOS 15.0, *)) {
+                self->_C.backgroundColor = [UIColor systemMintColor];
+                self->_Ent.backgroundColor = [UIColor systemMintColor];
+            } else {
+                self->_C.backgroundColor = [UIColor systemBlueColor];
+                self->_Ent.backgroundColor = [UIColor systemBlueColor];// Fallback on earlier versions
+            }
+        });
+
+        while(1){
+            //printf("%s ", mCubeRenderer->rts());
+            //printf("%s\n", ha);
+            //usleep(10000);
+            if(self->mCubeRenderer->yn() == true){
+                printf(" kk \n");
+
+                self->mCubeRenderer->ync();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString* ha = [NSString stringWithUTF8String: self->mCubeRenderer->rts()];
+
+                    NSString *sa = [self->_gggg text];
+                    NSString *ss = [NSString stringWithFormat:@"%@\n%@\n", sa, ha];
+                    self->_gggg.text = ss;
+                    //printf("%s", ss.UTF8String);
+                    [self->_gggg scrollRangeToVisible:NSMakeRange(self->_gggg.text.length-1, 1)];
+                });
+            }
+        }
     });
     e = true;
       
@@ -95,7 +113,7 @@ BOOL e;
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    printf("111");
+    //printf("111");
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
  
@@ -113,7 +131,7 @@ BOOL e;
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-    printf("222");
+    //printf("222");
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     _scrollView.contentInset = contentInsets;
     _scrollView.scrollIndicatorInsets = contentInsets;
@@ -139,7 +157,7 @@ BOOL e;
         _C.backgroundColor = [UIColor grayColor];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             const char* ss1 = s1.UTF8String;
-            self->mCubeRenderer->SSS(ss1,"73.71.182.238");
+            self->mCubeRenderer->SSS(ss1);
             dispatch_async(dispatch_get_main_queue(), ^{
                 self->_C.enabled = true;
                 e = true;
